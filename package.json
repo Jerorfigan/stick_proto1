@@ -10,7 +10,7 @@
     "@types/node": "^6.0.77",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
-    "gulp-browser": "^3.0.4",
+    "gulp-browser": "^3.0.6",
     "gulp-concat": "^2.6.1",
     "gulp-uglify": "^3.0.0"
   },

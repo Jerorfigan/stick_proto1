@@ -24,6 +24,14 @@ Settings.prototype.init = function(){
 
 	// Rotation
 	this.deltaRadOnRotate = Math.PI/18;
+
+	// Player
+	this.playerWidth = 50;
+	this.playerHeight = 100;
+	this.playerColor = 0xFF0000;
+	this.playerMoveVelocity = 75;
+	this.playerJumpVelocity = 100;
+	this.accelOfGravity = 25;
 };
 
 module.exports = new Settings();

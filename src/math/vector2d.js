@@ -22,6 +22,10 @@ Vector2D.prototype.rotate = function(rad){
 		);
 };
 
+Vector2D.prototype.scale = function(scalar){
+	return new Vector2D(this.x * scalar, this.y * scalar);
+};
+
 Vector2D.prototype.normalize = function(){
 	var mag = this.mag();
 	return new Vector2D(this.x/mag, this.y/mag);

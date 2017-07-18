@@ -6,7 +6,7 @@ var del = require('del');
  
 var paths = {
   scripts: ['src/*.js', 'src/fx/*.js', 'src/math/*.js'],
-  driver: ['src/collision.js']
+  driver: ['src/driver.js']
 };
  
 // Not all tasks need to use streams 
@@ -23,7 +23,7 @@ gulp.task('scripts', ['clean'], function() {
     //.pipe(sourcemaps.init())
       .pipe(gulpbrowserify.browserify())
       //.pipe(uglify())
-      .pipe(concat('collision.min.js'))
+      .pipe(concat('stickproto.min.js'))
     //.pipe(sourcemaps.write())
     .pipe(gulp.dest('build'));
 });

@@ -1,4 +1,4 @@
-var CollisionTester = require("./collision_tester.js");
+var GameManager = require("./game_mgr.js");
 var settings = require("./settings.js");
 
 window.onload = function(){
@@ -29,7 +29,7 @@ window.onload = function(){
             this.loop(0);
         };
         Driver.prototype.init = function(){
-            this.mgr = new CollisionTester();
+            this.mgr = new GameManager();
         };
         Driver.prototype.loop = function(currTime){
             var driver = this;

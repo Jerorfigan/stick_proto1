@@ -2,7 +2,8 @@ var R = require("../../lib/ramda.min.js");
 var settings = require("../settings.js");
 var PhysRectFX = require("./PhysRectFX.js"); 
 var PhysEquiTriFX = require("./PhysEquiTriFX.js");
-var PhysRegPolyFX = require("./PhysRegPolyFX.js")
+var PhysRegPolyFX = require("./PhysRegPolyFX.js");
+var PlayerFX = require("./PlayerFX.js");
 
 var FX = function(){
 	this.app = new PIXI.Application(settings.renderSpace.width, settings.renderSpace.height, { antialias: true });
@@ -32,6 +33,9 @@ FX.prototype.draw = function(gameState){
 					break;
 				case "PhysRegPoly":
 					newActor = new PhysRegPolyFX(drawable, thisObj.app);
+					break;
+				case "Player":
+					newActor = new PlayerFX(drawable, thisObj.app);
 					break;
 				default:
 					throw "Unknown drawable type: " + drawable.constructor.name;
@@ -66,11 +70,16 @@ function initEvents(){
 			}
 		}, thisObj.actors);
 	};
-	window.onkeypress = function(e){
+
+	function handleKeyboardEvent(e, keyUp){
 		R.forEach(function(actor){
 			if(actor.fxb.interaction.respondsToKeypress){
-				actor.onKeypress(e);
+				actor.onKeypress(e, keyUp);
 			}
 		}, thisObj.actors);
-	};
+	}
+
+	window.onkeypress = handleKeyboardEvent;
+	window.onkeydown = handleKeyboardEvent;
+	window.onkeyup = function(e){ handleKeyboardEvent(e, true); };
 }

@@ -39,5 +39,9 @@ evtMgr.create("PhysObjBeingDragged");
 evtMgr.create("PhysObjStoppedBeingDragged");
 evtMgr.create("PhysObjRotatedClockwise");
 evtMgr.create("PhysObjRotatedCounterClockwise");
+evtMgr.create("LeftArrow");
+evtMgr.create("UpArrow");
+evtMgr.create("RightArrow");
+evtMgr.create("DownArrow");
 
 module.exports = evtMgr;
